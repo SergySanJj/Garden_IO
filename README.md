@@ -17,3 +17,7 @@ Used:
     - #### JPA, Hibernate for Postgres
     - #### Single page application created with bare JS
     - #### SpringBootTest, JUnit, Mockito for tests 
+    
+### Screenshots
+
+<img src="/images/1.jpg" alt="view">
