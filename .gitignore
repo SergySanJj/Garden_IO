@@ -1,23 +1,43 @@
-# Compiled class file
+target/
 *.class
-
-# Log file
-*.log
-
-# BlueJ files
-*.ctxt
-
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
-
-# Package Files #
 *.jar
 *.war
-*.nar
 *.ear
-*.zip
-*.tar.gz
-*.rar
+.settings/
+.project
+.classpath
+*#
+*~
 
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
-hs_err_pid*
+# Intellij
+sonarlint
+dataSources
+*.iml
+*.iws
+
+# Maven
+log/
+target/
+backend/garden/.idea/dataSources.local.xml
+
+backend/garden/.idea/dataSources.xml
+
+backend/garden/.idea/workspace.xml
+
+backend/garden/.idea/sonarIssues.xml
+
+backend/garden/gardenAPI/gardenTestConfig.json
+backend/garden/gardenAPI/gardenTestConfig.json
+
+
+*/.idea/
+projectName.iml
+/*.classpath
+/.classpath
+/.springBeans
+*.DS_Store
+*.iml
+/build
+/local.properties
+target/
+lab3/.idea/sonarIssues.xml

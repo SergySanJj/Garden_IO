@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd
+
+    http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <include file="scripts/001CreateTableBanks.sql" relativeToChangelogFile="true"/>
+    <include file="scripts/002CreateTableAccounts.sql" relativeToChangelogFile="true"/>
+	<include file="scripts/003CreateTableUsers.sql" relativeToChangelogFile="true"/>
+    <include file="scripts/004CreateTableCards.sql" relativeToChangelogFile="true"/>
+    <include file="scripts/005CreateTablePayments.sql" relativeToChangelogFile="true"/>	
+	<include file="scripts/006CreateTableUserProfile.sql" relativeToChangelogFile="true"/>	
+	<include file="scripts/007CreateTableUserUserProfile.sql" relativeToChangelogFile="true"/>	
+    <changeSet author="isara (generated)" id="1592350102915-1">
+        <createTable tableName="users">
+            <column autoIncrement="true" name="id" type="INTEGER">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="users_pk"/>
+            </column>
+            <column name="login" type="VARCHAR(64)">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValue="gardener" name="user_role" type="VARCHAR(32)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="isara (generated)" id="1592350102915-2">
+        <createTable tableName="orders">
+            <column autoIncrement="true" name="id" type="INTEGER">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="orders_pk"/>
+            </column>
+            <column name="user_id" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="quantity" type="INTEGER"/>
+            <column name="info" type="VARCHAR(256)"/>
+            <column name="status" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="isara (generated)" id="1592350102915-3">
+        <createIndex indexName="users_login_uindex" tableName="users" unique="true">
+            <column name="login"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="isara (generated)" id="1592350102915-4">
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="orders" constraintName="orders_users_id_fk" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="users" validate="true"/>
+    </changeSet>
+    <changeSet author="isara (generated)" id="1592350102915-5">
+        <createSequence cacheSize="1" cycle="false" dataType="bigint" incrementBy="1" maxValue="9223372036854775807" minValue="1" sequenceName="hibernate_sequence" startValue="1"/>
+    </changeSet>
+</databaseChangeLog>

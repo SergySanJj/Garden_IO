@@ -1,0 +1,8 @@
+{
+  "database": {
+    "url": "postgres://your_url",
+    "login": "test_login",
+    "name": "test_name",
+    "password": "tast_password"
+  }
+}
